@@ -11,7 +11,6 @@ The directory RUN_ON_WINDOWS_PRESETUP needs to be downloaded to the Windows host
 In my use case, I have an issue with SSL certificates causing 500 error. To get around this for a playbook, it is a known issue to add a callback.
 I'll think of a better way to present this but for now, in the main directory structure:
 ```
-.
 --+ hosts
 --+ test_windows_playbook.yml
 --+ group_vars
