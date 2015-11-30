@@ -5,7 +5,7 @@ General purpose Windows Ansible role and Prep scripts for Windows systems to be 
 ### Preparing the Windows Hosts
 You can automate this in various ways. I will cover this at a later date.
 The directory RUN_ON_WINDOWS_PRESETUP needs to be downloaded to the Windows hosts. It will also need network access to download the scripts it needs
-- Run presetup.cmd as and Administrator account
+- Run presetup.cmd as an Administrator account
 
 ### Preparing the Ansible controller
 In my use case, I have an issue with SSL certificates causing 500 error. To get around this for a playbook, it is a known issue to add a callback.
