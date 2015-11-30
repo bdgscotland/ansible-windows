@@ -1,0 +1,14 @@
+---
+#- name: Load in chocolatey packages vars
+#  include_vars: "{{ vars_file }}"
+
+- name: Install chocolatey packages
+  win_chocolatey:
+    name: "{{ item.ch_pkg_name }}"
+    force: "{{ item.ch_force | default('false') }}"
+#    source: "{{ item.ch_source }}"
+    state: "{{ item.ch_state | default('present') }}"
+    upgrade: "{{ item.ch_upgrade | default(false) }}"
+#    version: "{{ item.ch_version | default('latest') }}"
+  with_items: ch_pkg_list | default({})
+
