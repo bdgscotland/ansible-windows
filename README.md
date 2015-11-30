@@ -53,7 +53,7 @@ ansible_port: 5987
 ```
 ### Run the playbook
 ```
-$ ansible-playbook -i hosts buildserver_win.yml 
+$ ansible-playbook -i hosts testplaybook_win.yml 
 
 PLAY [windev] ***************************************************************** 
 
