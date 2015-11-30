@@ -20,7 +20,6 @@ I'll think of a better way to present this but for now, in the main directory st
 | --+ fix-ssl.py
 ```
 #### test_windows_playbook.yml
-
 ```yaml
 - hosts: windev
   tasks:
@@ -29,7 +28,19 @@ I'll think of a better way to present this but for now, in the main directory st
       register: ipconfig
     - debug: var=ipconfig
 ```
-
+#### hosts
+```yaml
+[windev]
+testhost-win-01
+```
+#### group_vars/windev.yml
+```yaml
+ansible_ssh_user: svcAnsible
+ansible_ssh_pass: ChangeMe12
+ansible_ssh_port: 5986
+ansible_connection: winrm
+ansible_port: 5987
+```
 
 ## Limitations
 Check the issues page for bugs and known limitations within the scripts
