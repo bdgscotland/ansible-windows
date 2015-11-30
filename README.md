@@ -10,6 +10,8 @@ The directory RUN_ON_WINDOWS_PRESETUP needs to be downloaded to the Windows host
 ### Preparing the Ansible controller
 In my use case, I have an issue with SSL certificates causing 500 error. To get around this for a playbook, it is a known issue to add a callback.
 I'll think of a better way to present this but for now, in the main directory structure:
+
+#### Directory structure of Ansible directory
 ```
 --+ hosts
 --+ test_windows_playbook.yml
@@ -17,6 +19,15 @@ I'll think of a better way to present this but for now, in the main directory st
 --+ host_vars
 --+ callback_plugins
 | --+ fix-ssl.py
+```
+#### callback_plugins/fix-ssl.py
+```python
+import ssl
+if hasattr(ssl, '_create_default_https_context') and hasattr(ssl, '_create_unverified_context'):
+    ssl._create_default_https_context = ssl._create_unverified_context
+
+class CallbackModule(object):
+    pass
 ```
 #### test_windows_playbook.yml
 ```yaml
