@@ -40,6 +40,63 @@ ansible_ssh_port: 5986
 ansible_connection: winrm
 ansible_port: 5987
 ```
+### Run the playbook
+```
+$ ansible-playbook -i hosts buildserver_win.yml 
+
+PLAY [windev] ***************************************************************** 
+
+GATHERING FACTS *************************************************************** 
+ok: [testhost-win-01]
+
+TASK: [run ipconfig] ********************************************************** 
+ok: [testhost-win-01]
+
+TASK: [debug var=ipconfig] **************************************************** 
+ok: [testhost-win-01] => {
+    "var": {
+        "ipconfig": {
+            "invocation": {
+                "module_args": "ipconfig", 
+                "module_complex_args": {}, 
+                "module_name": "raw"
+            }, 
+            "rc": 0, 
+            "stderr": "", 
+            "stdout": "\r\nWindows IP Configuration\r\n\r\n\r\nEthernet adapter Ethernet:\r\n\r\n   Connection-specific DNS Suffix  . : \r\n   Link-local IPv6 Address . . . . . : fe80::548d:db75:21ad:717d%12\r\n   IPv4 Address. . . . . . . . . . . : 10.10.9.37\r\n   Subnet Mask . . . . . . . . . . . : 255.255.252.0\r\n   Default Gateway . . . . . . . . . : 10.10.10.1\r\n\r\nTunnel adapter isatap.{09F26B0B-E53F-42CF-BA7D-F125637D996A}:\r\n\r\n   Media State . . . . . . . . . . . : Media disconnected\r\n   Connection-specific DNS Suffix  . : \r\n\r\nTunnel adapter Teredo Tunneling Pseudo-Interface:\r\n\r\n   Connection-specific DNS Suffix  . : \r\n   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:6abd:309d:5437:fbf0:b625\r\n   Link-local IPv6 Address . . . . . : fe80::309d:5437:fbf0:b625%23\r\n   Default Gateway . . . . . . . . . : ::\r\n", 
+            "stdout_lines": [
+                "", 
+                "Windows IP Configuration", 
+                "", 
+                "", 
+                "Ethernet adapter Ethernet:", 
+                "", 
+                "   Connection-specific DNS Suffix  . : ", 
+                "   Link-local IPv6 Address . . . . . : fe80::548d:db75:21ad:717d%12", 
+                "   IPv4 Address. . . . . . . . . . . : 10.10.9.37", 
+                "   Subnet Mask . . . . . . . . . . . : 255.255.252.0", 
+                "   Default Gateway . . . . . . . . . : 10.10.10.1", 
+                "", 
+                "Tunnel adapter isatap.{09F26B0B-E53F-42CF-BA7D-F125637D996A}:", 
+                "", 
+                "   Media State . . . . . . . . . . . : Media disconnected", 
+                "   Connection-specific DNS Suffix  . : ", 
+                "", 
+                "Tunnel adapter Teredo Tunneling Pseudo-Interface:", 
+                "", 
+                "   Connection-specific DNS Suffix  . : ", 
+                "   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:6abd:309d:5437:fbf0:b625", 
+                "   Link-local IPv6 Address . . . . . : fe80::309d:5437:fbf0:b625%23", 
+                "   Default Gateway . . . . . . . . . : ::"
+            ]
+        }
+    }
+}
+
+PLAY RECAP ******************************************************************** 
+testhost-win-01              : ok=3    changed=0    unreachable=0    failed=0   
+```
+
 
 ## Limitations
 Check the issues page for bugs and known limitations within the scripts
