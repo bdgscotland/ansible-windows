@@ -115,7 +115,7 @@ Check the issues page for bugs and known limitations within the scripts
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015 
+Copyright (c) 2015 Duncan Bowring (DirectlyOps LLC)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
