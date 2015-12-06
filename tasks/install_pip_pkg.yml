@@ -1,0 +1,16 @@
+---
+- name: check {{ item.pip_pkg_name}} installation
+  win_stat: path='{{ pip_py_prefix }}{{ item.pip_pkg_name }}'
+  register: pip_{{ item.pip_pkg_name }}
+  with_items: pip_pkg_list
+
+#checking isnt working
+- debug: var=pip_{{ item.pip_pkg_name }}
+  with_items: pip_pkg_list
+
+- name: pip install {{ item.pip_pkg_name }}
+  raw: 'pip install {{ item.pip_pkg_name }}'
+#  when: not pip_{{ item.pip_pkg_name }}.stat.exists
+#  when: not testingvar.stat.exists
+  with_items: pip_pkg_list
+

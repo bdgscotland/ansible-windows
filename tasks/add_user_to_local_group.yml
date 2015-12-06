@@ -1,0 +1,2 @@
+- name: Add domain user to local group
+  script: Set-ADAccountasLocalGroup.ps1 -Computer {{ autlg_computer }} -Trustee {{ autlg_user }}

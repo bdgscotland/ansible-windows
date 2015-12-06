@@ -1,3 +1,14 @@
-- name: the main runbook
+- name: add computer to domain
   tasks: 
+  include: add_computer_to_domain.yml # add a condition for optional variables needed too
+  when: add_computer_to_domain
+
+- name: add user to local group
+  include: add_user_to_local_group.yml # add a condition for optional variables needed too
+  when: add_user_to_local_group
+
+- name: install choco packages
   include: install_pkg_choco.yml
+
+- name: install pip packages
+  include: install_pip_pkg.yml # install pip packages

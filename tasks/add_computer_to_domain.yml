@@ -1,0 +1,2 @@
+- name: Add computer to domain
+  script: Add-ComputertoDomain.ps1
